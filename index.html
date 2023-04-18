@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap" rel="stylesheet">
+      </head>
+    <body>
+        <main>
+            <h1>Rock, Paper, Scissors</h1>
+            <section id="home-view">
+                <h2>Choose your game!</h2>
+                <div id="classic" class="games">
+                    <h3>Classic</h3>
+                    <p>rock > scissors</p>
+                    <p>paper > rock</p>
+                    <p>scissors > paper</p>
+                </div>
+                <div id="elemental" class="games">
+                    <h3>Elemental</h3>
+                    <p>cryo > hydro & electro</p>
+                    <p>hydro > pyro & geo</p>
+                    <p>geo > pyro & cryo</p>
+                    <p>pyro > cryo & electro</p>
+                    <p>electro > geo & hydro</p>
+                </div>
+            </section>
+            <form id="classic-options" class="hidden">
+                <h2>Choose your character!</h2>
+                <section class="classic-options-box">
+                    <img src="assets/happy-rocks.png" class="choice" alt="rock">
+                    <img src="assets/happy-paper.png" class="choice" alt="paper">
+                    <img src="assets/happy-scissors.png" class="choice" alt="scissors">
+                </section>
+            </form>
+        </main>
+        <section id="left-human" class="side-panel">
+            <div class="human">
+                <p>👁️👄👁️</p>
+                <h4>Human</h4>
+            </div>
+            <div id="human-wins">
+                <p>Wins: 0</p>
+            </div>
+        </section>
+        <section id="right-computer" class="side-panel">
+            <div class="comp">
+                <p>🖥️</p>
+                <h4>Computer</h4>
+            </div>
+            <div id="comp-wins">
+                <p>Wins: 0</p>
+            </div>
+        </section>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>

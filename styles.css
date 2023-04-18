@@ -1,0 +1,107 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #7c34db, #009bff, #00bdff, #00daff, #5fdafb);
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+/* MAIN MIDDLE AREA - HOME PAGE */
+main, .side-panel, div, #home-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 2;
+}
+
+h1 {
+    font-family: 'Tilt Prism', cursive;
+    font-size: 70px;
+    margin-bottom: 0;
+}
+
+h2 {
+    margin-top: 5px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 25px;
+    margin: 10px;
+}
+
+div {
+    margin-top: 10%;
+}
+
+#home-view {
+    width: 50%;
+}
+
+.games {
+    background-image: linear-gradient(to top, #7c34db, #009bff);
+    width: 70%;
+    height: fit-content;
+    padding: 5%;
+    transition: .2s ease;
+}
+
+.games:hover {
+    cursor: pointer;
+    box-shadow: 10px 10px 13px -4px rgba(0,0,0,0.3);
+}
+
+p {
+    margin: 5px;
+}
+
+/* SIDE PANELS */
+.side-panel {
+    width: 15%;
+    height: 100vh;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+}
+
+#left-human {
+    order: 1;
+    background-image: linear-gradient(to top, #7c34db, #009bff, #00bdff);
+}
+
+#right-computer {
+    order: 3;
+    background-image: linear-gradient(to top, #7c34db, #009bff, #00bdff);
+}
+
+/* CLASSIC GAME */
+.classic-options-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice {
+    width: 120px;
+    height: 120px;
+    margin: 5%;
+}
+
+.choice:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/* HIDDEN */
+.hidden {
+    display: none !important;
+}
