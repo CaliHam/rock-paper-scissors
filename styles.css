@@ -6,13 +6,18 @@ html, body {
     min-height: 100vh;
 }
 
-main {
+body {
+    background-image: linear-gradient(to bottom, #7c34db, #009bff, #00bdff, #00daff, #5fdafb);
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+main, .side-panel, div {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-body {
-    background-image: linear-gradient(to bottom, #7c34db, #009bff, #00bdff, #00daff, #5fdafb);
+    order: 2;
 }
 
 h1 {
@@ -23,4 +28,45 @@ h1 {
 
 h2 {
     margin-top: 5px;
+}
+
+h3 {
+    font-size: 25px;
+    margin: 10px;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+}
+
+.side-panel {
+    width: 15%;
+    height: 100vh;
+}
+
+#left-human {
+    order: 1;
+    background-image: linear-gradient(to top, #7c34db, #009bff, #00bdff);
+}
+
+#right-computer {
+    order: 3;
+    background-image: linear-gradient(to top, #7c34db, #009bff, #00bdff);
+}
+
+div {
+    margin-top: 10%;
+}
+
+.games {
+    background-image: linear-gradient(to top, #7c34db, #009bff);
+    width: 35%;
+    height: fit-content;
+    padding: 3%;
+}
+
+p {
+    margin: 5px;
 }
