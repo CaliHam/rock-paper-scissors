@@ -8,24 +8,34 @@
     <body>
         <main>
             <h1>Rock, Paper, Scissors</h1>
-            <h2>Choose your game!</h2>
-            <div class="games">
-                <h3>Classic</h3>
-                <p>rock > scissors</p>
-                <p>paper > rock</p>
-                <p>scissors > paper</p>
-            </div>
-            <div class="games">
-                <h3>Elemental</h3>
-                <p>cryo > hydro & electro</p>
-                <p>hydro > pyro & geo</p>
-                <p>geo > pyro & cryo</p>
-                <p>pyro > cryo & electro</p>
-                <p>electro > geo & hydro</p>
-            </div>
+            <section id="home-view">
+                <h2>Choose your game!</h2>
+                <div id="classic" class="games">
+                    <h3>Classic</h3>
+                    <p>rock > scissors</p>
+                    <p>paper > rock</p>
+                    <p>scissors > paper</p>
+                </div>
+                <div id="elemental" class="games">
+                    <h3>Elemental</h3>
+                    <p>cryo > hydro & electro</p>
+                    <p>hydro > pyro & geo</p>
+                    <p>geo > pyro & cryo</p>
+                    <p>pyro > cryo & electro</p>
+                    <p>electro > geo & hydro</p>
+                </div>
+            </section>
+            <form id="classic-options" class="hidden">
+                <h2>Choose your character!</h2>
+                <section class="classic-options-box">
+                    <img src="assets/happy-rocks.png" class="choice" alt="rock">
+                    <img src="assets/happy-paper.png" class="choice" alt="paper">
+                    <img src="assets/happy-scissors.png" class="choice" alt="scissors">
+                </section>
+            </form>
         </main>
         <section id="left-human" class="side-panel">
-            <div>
+            <div class="human">
                 <p>👁️👄👁️</p>
                 <h4>Human</h4>
             </div>
@@ -34,7 +44,7 @@
             </div>
         </section>
         <section id="right-computer" class="side-panel">
-            <div>
+            <div class="comp">
                 <p>🖥️</p>
                 <h4>Computer</h4>
             </div>
@@ -43,6 +53,5 @@
             </div>
         </section>
         <script type="text/javascript" src="main.js"></script>
-        <script type="text/javascript" src="assets/data.js"></script>
     </body>
 </html>
