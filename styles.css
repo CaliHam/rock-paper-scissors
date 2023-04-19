@@ -38,6 +38,7 @@ h3 {
 
 div {
     margin-top: 10%;
+    font-size: 20px;
 }
 
 #home-view {
@@ -69,7 +70,7 @@ p {
 
 h4 {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 25px;
     margin: 0;
 }
 
@@ -81,6 +82,12 @@ h4 {
 #right-computer {
     order: 3;
     background-image: linear-gradient(to top, #7c34db, #009bff, #00bdff);
+}
+
+.player-icons {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
 }
 
 /* CLASSIC GAME */
