@@ -50,10 +50,11 @@ div {
     width: 70%;
     height: fit-content;
     padding: 5%;
+    border-radius: 10px;
     transition: .2s ease;
 }
 
-.games:hover {
+.games:hover, .change-game:hover {
     cursor: pointer;
     box-shadow: 10px 10px 13px -4px rgba(0,0,0,0.3);
 }
@@ -77,6 +78,20 @@ h4 {
 #left-human {
     order: 1;
     background-image: linear-gradient(to top, #7c34db, #009bff, #00bdff);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+
+.change-game {
+    width: 75%;
+    height: 5%;
+    margin-top: 50px;
+    background-color: #7e62e3d2;
+    color: aliceblue;
+    font-size: 100%;
+    border: none;
+    border-radius: 5px;
 }
 
 #right-computer {

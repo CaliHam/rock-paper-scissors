@@ -4,13 +4,16 @@ var homeView = document.querySelector('#home-view')
 var playClassicOptions = document.querySelector('#classic-options')
 var playerOne = document.querySelector('.human')
 var playerTwo = document.querySelector('.comp')
+var changeGameBtn = document.querySelector('.change-game')
+
+var human = createPlayer('Human', `assets/neutral.png`)
+var computer = createPlayer('Computer', `assets/comp-neutral.png`)
+var currentGame;
 
 // EVENT LISTENERS //
 classicChoice.addEventListener('click', playClassic)
 
 window.onload = function() {
-    var human = createPlayer('Human', `assets/neutral.png`)
-    var computer = createPlayer('Computer', `assets/comp-neutral.png`)
     setMatch(human, computer)
 }
 
@@ -30,6 +33,7 @@ function setMatch(player1, player2){
         <h4>${player2.name}</h4>
         <p>Wins: ${player2.wins}</p>`
 }
+
 // OTHER FUNCTIONS //
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
@@ -44,20 +48,17 @@ function createPlayer(name, token) {
     return player;
 }
 
-function takeTurn() {
-
+function createGame(player1, player2) {
+    var newGame = {
+        players: [player1, player2],
+        type: type? 'classic' : 'elemental',
+    }
+    currentGame = newGame
+    return newGame;
 }
 
-function createGame(player1, player2) {
-    var currentGame = {
-        players: [player1, player2],
-        type: type? classic : elemental,
-    }
-    return currentGame;
-    //should return a game object containing:
-        // Two Player objects (player1 and player2)
-        // A way to keep track of the data for the game board
-        // A way to keep track of the selected game type
+function takeTurn() {
+
 }
 
 // A separate function to check the game’s board data for win conditions
