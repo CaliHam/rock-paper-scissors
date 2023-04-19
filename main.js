@@ -23,6 +23,9 @@ function playClassic() {
     playClassicOptions.classList.remove('hidden')
 
     currentGame.type = 'classic';
+
+    takeTurn(human, userChoice)
+    takeTurn(computer)
 }
 
 function setMatch(player1, player2){
@@ -64,9 +67,17 @@ function createGame(player1, player2) {
     return newGame;
 }
 
-function takeTurn() {
-
-}
+function takeTurn(player, userChoice) {
+    if (player.name === 'Human'){
+      player.choice = userChoice
+      console.log('human chose:', player.choice)
+    } else {
+      var i = getRandomIndex(currentGame.options[currentGame.type])
+        player.choice = currentGame.options[currentGame.type][i]
+        console.log('computer chose:', player.choice)
+    }
+    return player;
+  }
 
 // A separate function to check the game’s board data for win conditions
 function winConditions() {
