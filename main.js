@@ -108,6 +108,8 @@ function draw(player1, player2) {
 }
 
 function resetGame() {
+    human.token = `assets/neutral.png`
+    computer.token = `assets/comp-neutral.png`
     setMatch(human, computer)
     playClassicOptions.innerHTML = `
         <h2 class="header2">Choose your character!</h2>
@@ -133,10 +135,9 @@ function showResult(playerWin, playerLose) {
         playClassicOptions.innerHTML = `
         <h2 class="header2">${playerWin.name} won this round!</h2>
         <section class="classic-options-box">
-            <img src="assets/happy-${playerWin.choice}.png" class="choice" alt="rock">
-            <img src="assets/happy-${playerLose.choice}.png" class="choice" alt="paper">
+            <img src="assets/happy-${human.choice}.png" class="choice" alt="rock">
+            <img src="assets/happy-${computer.choice}.png" class="choice" alt="paper">
         </section>`
-
     } else {
         playClassicOptions.innerHTML = `
         <h2 class="header2">It's a draw!</h2>
@@ -145,7 +146,22 @@ function showResult(playerWin, playerLose) {
             <img src="assets/happy-${playerWin.choice}.png" class="choice" alt="paper">
         </section>`
     }
+    emote(playerWin, playerLose)
+    setMatch(human, computer)
     setTimeout(() => {
         resetGame();
-    }, 2000);
+    }, 1500);
+}
+
+function emote(playerWin, playerLose) {
+    if (playerLose === computer){
+        playerWin.token = `assets/grin.png`
+        playerLose.token = `assets/comp-dull.png`
+    } else if (playerLose === human){
+        playerWin.token = `assets/comp-happy.png`
+        playerLose.token = `assets/sob.png`
+    } else {
+        human.token = `assets/sob.png`
+        computer.token = `assets/comp-dull.png`
+    }
 }
