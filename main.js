@@ -6,9 +6,9 @@ var playerOne = document.querySelector('.human')
 var playerTwo = document.querySelector('.comp')
 var changeGameBtn = document.querySelector('.change-game')
 
-var human = createPlayer('Human', `assets/neutral.png`)
-var computer = createPlayer('Computer', `assets/comp-neutral.png`)
-var currentGame;
+var currentGame = createGame(createPlayer('Human', `:)`), createPlayer('Computer', `[>:)]`))
+var human = currentGame.players[0]
+var computer = currentGame.players[1]
 
 // EVENT LISTENERS //
 classicChoice.addEventListener('click', playClassic)
@@ -21,6 +21,8 @@ window.onload = function() {
 function playClassic() {
     homeView.classList.add('hidden')
     playClassicOptions.classList.remove('hidden')
+
+    currentGame.type = 'classic';
 }
 
 function setMatch(player1, player2){
@@ -44,6 +46,7 @@ function createPlayer(name, token) {
         name,
         token,
         wins: 0,
+        choice: null,
     }
     return player;
 }
@@ -51,9 +54,13 @@ function createPlayer(name, token) {
 function createGame(player1, player2) {
     var newGame = {
         players: [player1, player2],
-        type: type? 'classic' : 'elemental',
+        type: null,
+        winConditions: [['rock', 'scissors'],['scissors', 'paper'],['paper', 'rock']],
+        options: {
+          classic: ['rock', 'paper', 'scissors'],
+          elements: ['cryo', 'pyro', 'electro', 'geo', 'hydro']
+        }
     }
-    currentGame = newGame
     return newGame;
 }
 
