@@ -1,12 +1,15 @@
 // VARIABLES //
 var classicChoice = document.querySelector('#classic')
+var elementChoice = document.querySelector('#elemental')
 var homeView = document.querySelector('#home-view')
 var playClassicOptions = document.querySelector('#classic-options')
+var playElementalOptions = document.querySelector('#elemental-options')
 var playerOne = document.querySelector('.human')
 var playerTwo = document.querySelector('.comp')
 
 // EVENT LISTENERS //
 classicChoice.addEventListener('click', playClassic)
+elementChoice.addEventListener('click', playElemental)
 
 window.onload = function() {
     var human = createPlayer('Human', `assets/neutral.png`)
@@ -18,6 +21,11 @@ window.onload = function() {
 function playClassic() {
     homeView.classList.add('hidden')
     playClassicOptions.classList.remove('hidden')
+}
+
+function playElemental() {
+    homeView.classList.add('hidden')
+    playElementalOptions.classList.remove('hidden')
 }
 
 function setMatch(player1, player2){
