@@ -6,6 +6,7 @@ var playerOne = document.querySelector('.human')
 var playerTwo = document.querySelector('.comp')
 var changeGameBtn = document.querySelector('.change-game')
 var userChoice = document.querySelectorAll('.choice')
+var title = document.querySelector('.header2')
 
 var currentGame = createGame(createPlayer('Human', `assets/neutral.png`), createPlayer('Computer', `assets/comp-neutral.png`))
 var human = currentGame.players[0]
@@ -30,8 +31,6 @@ function playClassic() {
 
     currentGame.type = 'classic';
 }
-
-
 
 function setMatch(player1, player2){
     playerOne.innerHTML = `
@@ -85,35 +84,68 @@ function takeTurn(player, event) {
     return player;
 }
 
-// A separate function to check the game’s board data for win conditions
 function pickWinner(player1, player2) {
     draw(player1, player2)
         for (var i = 0; i < currentGame.winConditions.length; i++) {
             if (player1.choice === currentGame.winConditions[i][0] && player2.choice === currentGame.winConditions[i][1]) {
             player1.wins += 1
-            console.log('player 1 wins!')
-            resetGame();
+            showResult(player1, player2)
         } 
         else if (player2.choice === currentGame.winConditions[i][0] && player1.choice === currentGame.winConditions[i][1]) {
             player2.wins += 1
-            console.log('player 2 wins!')
-            resetGame();
+            showResult(player2, player1)
         }
     }
 }
-// A separate function to detect when a game is a draw (no one has won)
+
 function draw(player1, player2) {
     if (player1.choice === player2.choice) {
-        console.log('its a draw!')
-        resetGame();
+        showResult(player1)
     }
     else {
         return;
     }
 }
-// A separate function to reset the game’s board to begin a new game
+
 function resetGame() {
     setMatch(human, computer)
-    // playClassicOptions.classList.remove('hidden')
-    playClassic()
-  }
+    playClassicOptions.innerHTML = `
+        <h2 class="header2">Choose your character!</h2>
+        <section class="classic-options-box">
+            <img src="assets/happy-rock.png" class="choice" alt="rock">
+            <img src="assets/happy-paper.png" class="choice" alt="paper">
+            <img src="assets/happy-scissors.png" class="choice" alt="scissors">
+        </section>`
+    resetChoices()
+}
+
+function resetChoices() {
+    var userChoice = document.querySelectorAll('.choice')
+    userChoice.forEach((element) => element.addEventListener('click', function(e) {
+        takeTurn(human, e)
+        takeTurn(computer)
+        pickWinner(human, computer)
+    }));
+}
+
+function showResult(playerWin, playerLose) {
+    if (playerWin, playerLose){
+        playClassicOptions.innerHTML = `
+        <h2 class="header2">${playerWin.name} won this round!</h2>
+        <section class="classic-options-box">
+            <img src="assets/happy-${playerWin.choice}.png" class="choice" alt="rock">
+            <img src="assets/happy-${playerLose.choice}.png" class="choice" alt="paper">
+        </section>`
+
+    } else {
+        playClassicOptions.innerHTML = `
+        <h2 class="header2">It's a draw!</h2>
+        <section class="classic-options-box">
+            <img src="assets/happy-${playerWin.choice}.png" class="choice" alt="rock">
+            <img src="assets/happy-${playerWin.choice}.png" class="choice" alt="paper">
+        </section>`
+    }
+    setTimeout(() => {
+        resetGame();
+    }, 2000);
+}
