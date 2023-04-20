@@ -17,6 +17,7 @@ var computer = currentGame.players[1]
 // EVENT LISTENERS //
 classicChoice.addEventListener('click', playClassic)
 elementChoice.addEventListener('click', playElemental)
+changeGameBtn.addEventListener('click', changeGame)
 
 userChoice.forEach((element) => element.addEventListener('click', function(e) {
     takeTurn(human, e)
@@ -32,13 +33,20 @@ window.onload = function() {
 function playClassic() {
     homeView.classList.add('hidden')
     playClassicOptions.classList.remove('hidden')
-
     currentGame.type = 'classic';
 }
 
 function playElemental() {
     homeView.classList.add('hidden')
     playElementalOptions.classList.remove('hidden')
+    currentGame.type = 'elemental';
+}
+
+function changeGame() {
+    homeView.classList.remove('hidden')
+    playElementalOptions.classList.add('hidden')
+    playClassicOptions.classList.add('hidden')
+    changeGameBtn.classList.add('hidden')
 }
 
 function setMatch(player1, player2){
@@ -128,6 +136,7 @@ function resetGame() {
             <img src="assets/happy-scissors.png" class="choice" alt="scissors">
         </section>`
     resetChoices()
+    changeGameBtn.classList.remove('hidden')
 }
 
 function resetChoices() {
