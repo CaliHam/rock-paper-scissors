@@ -79,7 +79,10 @@ function createGame(player1, player2) {
     var newGame = {
         players: [player1, player2],
         type: null,
-        winConditions: [['rock', 'scissors'],['scissors', 'paper'],['paper', 'rock']],
+        winConditions: {
+            classic: [['rock', 'scissors'],['scissors', 'paper'],['paper', 'rock']],
+            elemental: [['cryo', 'hydro', 'electro'],['hydro', 'pyro', 'geo'],['geo', 'pyro', 'cryo'],['pyro', 'cryo', 'electro'],['electro', 'geo', 'hydro']]
+        },
         options: {
           classic: ['rock', 'paper', 'scissors'],
           elements: ['cryo', 'pyro', 'electro', 'geo', 'hydro']
@@ -92,23 +95,21 @@ function takeTurn(player, event) {
     if (event){
         var userChoice = event.target.alt
         player.choice = userChoice
-        console.log('human chose:', player.choice)
     } else {
         var i = getRandomIndex(currentGame.options[currentGame.type])
         player.choice = currentGame.options[currentGame.type][i]
-        console.log('computer chose:', player.choice)
     }
     return player;
 }
 
-function pickWinner(player1, player2) {
+function pickWinnerClassic(player1, player2) {
     draw(player1, player2)
-        for (var i = 0; i < currentGame.winConditions.length; i++) {
-            if (player1.choice === currentGame.winConditions[i][0] && player2.choice === currentGame.winConditions[i][1]) {
+        for (var i = 0; i < currentGame.winConditions.classic.length; i++) {
+            if (player1.choice === currentGame.winConditions.classic[i][0] && player2.choice === currentGame.winConditions.classic[i][1]) {
             player1.wins += 1
             showResult(player1, player2)
         } 
-        else if (player2.choice === currentGame.winConditions[i][0] && player1.choice === currentGame.winConditions[i][1]) {
+        else if (player2.choice === currentGame.winConditions.classic[i][0] && player1.choice === currentGame.winConditions.classic[i][1]) {
             player2.wins += 1
             showResult(player2, player1)
         }
@@ -144,7 +145,7 @@ function resetChoices() {
     userChoice.forEach((element) => element.addEventListener('click', function(e) {
         takeTurn(human, e)
         takeTurn(computer)
-        pickWinner(human, computer)
+        pickWinnerClassic(human, computer)
     }));
 }
 
