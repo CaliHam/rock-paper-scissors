@@ -6,14 +6,25 @@ var playClassicOptions = document.querySelector('#classic-options')
 var playElementalOptions = document.querySelector('#elemental-options')
 var playerOne = document.querySelector('.human')
 var playerTwo = document.querySelector('.comp')
+var changeGameBtn = document.querySelector('.change-game')
+var userChoice = document.querySelectorAll('.choice')
+var title = document.querySelector('.header2')
+
+var currentGame = createGame(createPlayer('Human', `assets/neutral.png`), createPlayer('Computer', `assets/comp-neutral.png`))
+var human = currentGame.players[0]
+var computer = currentGame.players[1]
 
 // EVENT LISTENERS //
 classicChoice.addEventListener('click', playClassic)
 elementChoice.addEventListener('click', playElemental)
 
+userChoice.forEach((element) => element.addEventListener('click', function(e) {
+    takeTurn(human, e)
+    takeTurn(computer)
+    pickWinner(human, computer)
+}));
+
 window.onload = function() {
-    var human = createPlayer('Human', `assets/neutral.png`)
-    var computer = createPlayer('Computer', `assets/comp-neutral.png`)
     setMatch(human, computer)
 }
 
@@ -21,6 +32,8 @@ window.onload = function() {
 function playClassic() {
     homeView.classList.add('hidden')
     playClassicOptions.classList.remove('hidden')
+
+    currentGame.type = 'classic';
 }
 
 function playElemental() {
@@ -38,6 +51,7 @@ function setMatch(player1, player2){
         <h4>${player2.name}</h4>
         <p>Wins: ${player2.wins}</p>`
 }
+
 // OTHER FUNCTIONS //
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
@@ -48,35 +62,115 @@ function createPlayer(name, token) {
         name,
         token,
         wins: 0,
+        choice: null,
     }
     return player;
 }
 
-function takeTurn() {
-
-}
-
 function createGame(player1, player2) {
-    var currentGame = {
+    var newGame = {
         players: [player1, player2],
-        type: type? classic : elemental,
+        type: null,
+        winConditions: [['rock', 'scissors'],['scissors', 'paper'],['paper', 'rock']],
+        options: {
+          classic: ['rock', 'paper', 'scissors'],
+          elements: ['cryo', 'pyro', 'electro', 'geo', 'hydro']
+        }
     }
-    return currentGame;
-    //should return a game object containing:
-        // Two Player objects (player1 and player2)
-        // A way to keep track of the data for the game board
-        // A way to keep track of the selected game type
+    return newGame;
 }
 
-// A separate function to check the game’s board data for win conditions
-function winConditions() {
-
+function takeTurn(player, event) {
+    if (event){
+        var userChoice = event.target.alt
+        player.choice = userChoice
+        console.log('human chose:', player.choice)
+    } else {
+        var i = getRandomIndex(currentGame.options[currentGame.type])
+        player.choice = currentGame.options[currentGame.type][i]
+        console.log('computer chose:', player.choice)
+    }
+    return player;
 }
-// A separate function to detect when a game is a draw (no one has won)
-function draw() {
 
+function pickWinner(player1, player2) {
+    draw(player1, player2)
+        for (var i = 0; i < currentGame.winConditions.length; i++) {
+            if (player1.choice === currentGame.winConditions[i][0] && player2.choice === currentGame.winConditions[i][1]) {
+            player1.wins += 1
+            showResult(player1, player2)
+        } 
+        else if (player2.choice === currentGame.winConditions[i][0] && player1.choice === currentGame.winConditions[i][1]) {
+            player2.wins += 1
+            showResult(player2, player1)
+        }
+    }
 }
-// A separate function to reset the game’s board to begin a new game
+
+function draw(player1, player2) {
+    if (player1.choice === player2.choice) {
+        showResult(player1)
+    }
+    else {
+        return;
+    }
+}
+
 function resetGame() {
+    human.token = `assets/neutral.png`
+    computer.token = `assets/comp-neutral.png`
+    setMatch(human, computer)
+    playClassicOptions.innerHTML = `
+        <h2 class="header2">Choose your character!</h2>
+        <section class="classic-options-box">
+            <img src="assets/happy-rock.png" class="choice" alt="rock">
+            <img src="assets/happy-paper.png" class="choice" alt="paper">
+            <img src="assets/happy-scissors.png" class="choice" alt="scissors">
+        </section>`
+    resetChoices()
+}
 
+function resetChoices() {
+    var userChoice = document.querySelectorAll('.choice')
+    userChoice.forEach((element) => element.addEventListener('click', function(e) {
+        takeTurn(human, e)
+        takeTurn(computer)
+        pickWinner(human, computer)
+    }));
+}
+
+function showResult(playerWin, playerLose) {
+    if (playerWin, playerLose){
+        playClassicOptions.innerHTML = `
+        <h2 class="header2">${playerWin.name} won this round!</h2>
+        <section class="classic-options-box">
+            <img src="assets/happy-${human.choice}.png" class="choice" alt="rock">
+            <img src="assets/happy-${computer.choice}.png" class="choice" alt="paper">
+        </section>`
+    } else {
+        playClassicOptions.innerHTML = `
+        <h2 class="header2">It's a draw!</h2>
+        <section class="classic-options-box">
+            <img src="assets/happy-${playerWin.choice}.png" class="choice" alt="rock">
+            <img src="assets/happy-${playerWin.choice}.png" class="choice" alt="paper">
+        </section>`
+    }
+    emote(playerWin, playerLose)
+    setMatch(human, computer)
+    setTimeout(() => {
+        resetGame();
+    }, 1500);
+}
+
+function emote(playerWin, playerLose) {
+    if (playerLose === computer){
+        playerWin.token = `assets/grin.png`
+        playerLose.token = `assets/comp-dull.png`
+    } else if (playerLose === human){
+        playerWin.token = `assets/comp-happy.png`
+        playerLose.token = `assets/sob.png`
+    } else {
+        human.token = `assets/sob.png`
+        computer.token = `assets/comp-dull.png`
+    }
 }
