@@ -105,11 +105,16 @@ h4 {
     margin-bottom: 10px;
 }
 
-/* CLASSIC GAME */
-.classic-options-box {
+/* GAMES */
+.classic-options-box, .element-options-box {
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+}
+
+.win-box {
+    display: flex;
+    justify-content: center;
 }
 
 .choice {
@@ -121,6 +126,7 @@ h4 {
 .choice:hover {
     cursor: pointer;
     transform: scale(1.1);
+    transition: .2s ease;
 }
 
 /* HIDDEN */
