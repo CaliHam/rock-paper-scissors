@@ -196,14 +196,14 @@ function showResult(playerWin, playerLose) {
     if (playerWin, playerLose){
         gameOptions.innerHTML = `
         <h2 class="header2">${playerWin.name} won this round!</h2>
-        <section class="classic-options-box">
+        <section class="win-box">
             <img src="assets/${human.choice}.png" class="choice" alt="${playerWin.choice}">
             <img src="assets/${computer.choice}.png" class="choice" alt="${playerWin.choice}">
         </section>`
     } else {
         gameOptions.innerHTML = `
         <h2 class="header2">It's a draw!</h2>
-        <section class="classic-options-box">
+        <section class="win-box">
             <img src="assets/${playerWin.choice}.png" class="choice" alt="${playerWin.choice}">
             <img src="assets/${playerWin.choice}.png" class="choice" alt="${playerWin.choice}">
         </section>`

@@ -105,11 +105,16 @@ h4 {
     margin-bottom: 10px;
 }
 
-/* CLASSIC GAME */
+/* GAMES */
 .classic-options-box, .element-options-box {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.win-box {
+    display: flex;
+    justify-content: center;
 }
 
 .choice {
