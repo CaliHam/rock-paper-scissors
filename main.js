@@ -8,6 +8,8 @@ var playerTwo = document.querySelector('.comp')
 var changeGameBtn = document.querySelector('.change-game')
 var userChoice = document.querySelectorAll('.choice')
 var title = document.querySelector('.header2')
+var gameHistory = document.querySelector('.game-log')
+var pastChoices = document.querySelector('.choices-log')
 
 var currentGame = createGame(createPlayer('Human', `assets/neutral.png`), createPlayer('Computer', `assets/comp-neutral.png`))
 var human = currentGame.players[0]
@@ -197,8 +199,8 @@ function showResult(playerWin, playerLose) {
         gameOptions.innerHTML = `
         <h2 class="header2">${playerWin.name} won this round!</h2>
         <section class="win-box">
-            <img src="assets/${human.choice}.png" class="choice" alt="${playerWin.choice}">
-            <img src="assets/${computer.choice}.png" class="choice" alt="${playerWin.choice}">
+            <img src="assets/${human.choice}.png" class="choice" alt="${human.choice}">
+            <img src="assets/${computer.choice}.png" class="choice" alt="${computer.choice}">
         </section>`
     } else {
         gameOptions.innerHTML = `
@@ -210,6 +212,7 @@ function showResult(playerWin, playerLose) {
     }
     emote(playerWin, playerLose)
     setMatch(human, computer)
+    showGameHistory(human, computer)
     setTimeout(() => {
         resetGame();
     }, 2000);
@@ -226,4 +229,16 @@ function emote(playerWin, playerLose) {
         human.token = `assets/sob.png`
         computer.token = `assets/comp-dull.png`
     }
+}
+
+// var pastGames = [];
+
+function showGameHistory(human, computer) {
+    gameHistory.classList.remove('hidden')
+    pastChoices.innerHTML += 
+    `<div class="players-choices">
+        <img src="assets/${human.choice}.png" class="past-choice" alt="${human.choice}">
+        <img src="assets/${computer.choice}.png" class="past-choice" alt="${computer.choice}">
+    </div>`
+    pastChoices.scrollTop = -pastChoices.scrollHeight;
 }
