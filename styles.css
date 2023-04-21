@@ -121,16 +121,38 @@ h4 {
 }
 
 .game-log {
-    color:rgba(251, 235, 213, 0.9);
+    overflow-y: scroll;
     background-color: rgba(60, 54, 59, 0.8);
-    width: 80%;
-    height: 200px;
+    color:rgba(251, 235, 213, 0.9);
     margin-bottom: 100px;
+    width: 80%;
+    height: 250px;
+    padding-bottom: 5%;
+}
+
+.game-log::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(60, 54, 59, 0.8);
+    cursor: pointer;
+}
+
+.game-log::-webkit-scrollbar-thumb {
+    background-color:rgba(251, 235, 213, 0.8);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.game-log::-webkit-scrollbar-thumb:hover {
+    background-color:rgba(251, 243, 231, 0.8);
+}
+
+.choices-log {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
 }
 
 h5 {
-    margin: 5px;
-    padding: 5px;
+    margin: 10px 5px 0px 5px;
     text-align: center;
 }
 
@@ -164,6 +186,18 @@ h5 {
     cursor: pointer;
     transform: scale(1.1);
     transition: .2s ease;
+}
+
+.players-choices {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.past-choice {
+    width: 45px;
+    height: 45px;
+    margin: 10%;
 }
 
 /* HIDDEN */
