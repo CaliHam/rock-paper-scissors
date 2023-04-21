@@ -1,5 +1,6 @@
 * {
     font-family: 'Raleway', sans-serif;
+    color: #3C363B;
 }
 
 html, body {
@@ -7,11 +8,14 @@ html, body {
 }
 
 body {
-    background-image: linear-gradient(to bottom, #7c34db, #009bff, #00bdff, #00daff, #5fdafb);
+    background-image: url('assets/sunset.png');
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: space-between;
     margin: 0;
 }
+
 /* MAIN MIDDLE AREA - HOME PAGE */
 main, .side-panel, div, #home-view {
     display: flex;
@@ -20,10 +24,17 @@ main, .side-panel, div, #home-view {
     order: 2;
 }
 
+main {
+    border: 5px solid transparent;
+    padding: 10px;
+    border-image: url('assets/gold-cloud.png') 80% stretch;
+}
+
 h1 {
     font-family: 'Tilt Prism', cursive;
-    font-size: 70px;
-    margin-bottom: 0;
+    font-size: 80px;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 h2 {
@@ -46,11 +57,11 @@ div {
 }
 
 .games {
-    background-image: linear-gradient(to top, #7c34db, #009bff);
+    background-color: rgba(254, 164, 135, 0.7);
     width: 70%;
     height: fit-content;
     padding: 5%;
-    border-radius: 10px;
+    border-radius: 20px;
     transition: .2s ease;
 }
 
@@ -67,7 +78,15 @@ p {
 .side-panel {
     width: 15%;
     height: 100vh;
+    color: black;
+    background-color: rgba(199, 175, 185, 0.8);
+    /* border-image: url('assets/golden-border.png'); */
 }
+
+/* .overlay {
+    background-image: url('assets/golden-border.png');
+    background-size: cover;
+} */
 
 h4 {
     font-weight: 400;
@@ -77,7 +96,6 @@ h4 {
 
 #left-human {
     order: 1;
-    background-image: linear-gradient(to top, #7c34db, #009bff, #00bdff);
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
@@ -87,7 +105,7 @@ h4 {
     width: 75%;
     height: 5%;
     margin-top: 50px;
-    background-color: #7e62e3d2;
+    background-color: rgba(254, 164, 135, 0.9);
     color: aliceblue;
     font-size: 100%;
     border: none;
@@ -96,7 +114,6 @@ h4 {
 
 #right-computer {
     order: 3;
-    background-image: linear-gradient(to top, #7c34db, #009bff, #00bdff);
 }
 
 .player-icons {
@@ -110,11 +127,19 @@ h4 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 50px;
+    background-color: rgba(251, 235, 213, 0.7);
+    border-radius: 20px;
 }
 
 .win-box {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
+    background-color: rgba(251, 235, 213, 0.7);
+    width: 360px;
+    height: 150px;
+    border-radius: 20px;
 }
 
 .choice {
