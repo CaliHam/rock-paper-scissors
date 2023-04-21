@@ -1,6 +1,5 @@
 * {
     font-family: 'Raleway', sans-serif;
-    color: #3C363B;
 }
 
 html, body {
@@ -14,6 +13,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 0;
+    color: #3C363B;
 }
 
 /* MAIN MIDDLE AREA - HOME PAGE */
@@ -27,11 +27,11 @@ main, .side-panel, div, #home-view {
 main {
     border: 5px solid transparent;
     padding: 10px;
-    border-image: url('assets/gold-cloud.png') 80% stretch;
 }
 
 h1 {
     font-family: 'Tilt Prism', cursive;
+    text-align: center;
     font-size: 80px;
     margin-top: 5px;
     margin-bottom: 0px;
@@ -68,6 +68,7 @@ div {
 .games:hover, .change-game:hover {
     cursor: pointer;
     box-shadow: 10px 10px 13px -4px rgba(0,0,0,0.3);
+    background-color: rgba(252, 176, 151, 0.9);
 }
 
 p {
@@ -80,13 +81,7 @@ p {
     height: 100vh;
     color: black;
     background-color: rgba(199, 175, 185, 0.8);
-    /* border-image: url('assets/golden-border.png'); */
 }
-
-/* .overlay {
-    background-image: url('assets/golden-border.png');
-    background-size: cover;
-} */
 
 h4 {
     font-weight: 400;
@@ -114,12 +109,29 @@ h4 {
 
 #right-computer {
     order: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .player-icons {
     width: 120px;
     height: 120px;
     margin-bottom: 10px;
+}
+
+.game-log {
+    color:rgba(251, 235, 213, 0.9);
+    background-color: rgba(60, 54, 59, 0.8);
+    width: 80%;
+    height: 200px;
+    margin-bottom: 100px;
+}
+
+h5 {
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
 }
 
 /* GAMES */
