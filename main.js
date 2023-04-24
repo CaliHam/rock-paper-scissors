@@ -67,7 +67,7 @@ function setMatch(player1, player2){
         <p>Wins: ${player2.wins}</p>`
 }
 
-// OTHER FUNCTIONS //
+// Play Game //
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
 }
@@ -98,7 +98,6 @@ function createGame(player1, player2) {
     return newGame;
 }
 
-// should work for either game type
 function takeTurn(player, event) {
     if (event){
         var userChoice = event.target.alt
@@ -133,7 +132,6 @@ function pickWinnerClassic(player1, player2) {
 }
 
 function pickWinnerElemental(player1, player2) {
-    console.log('click')
     draw(player1, player2)
     for (var i = 0; i < currentGame.winConditions.elemental.length; i++) {
         if (player1.choice === currentGame.winConditions.elemental[i][0] && 
