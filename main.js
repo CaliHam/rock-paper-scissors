@@ -199,15 +199,15 @@ function showResult(playerWin, playerLose) {
         gameOptions.innerHTML = `
         <h2 class="header2">${playerWin.name} won this round!</h2>
         <section class="win-box">
-            <img src="assets/${human.choice}.png" class="choice" alt="${human.choice}">
-            <img src="assets/${computer.choice}.png" class="choice" alt="${computer.choice}">
+            <img src="assets/${human.choice}.png" class="choice show" alt="${human.choice}">
+            <img src="assets/${computer.choice}.png" class="choice show" alt="${computer.choice}">
         </section>`
     } else {
         gameOptions.innerHTML = `
         <h2 class="header2">It's a draw!</h2>
         <section class="win-box">
-            <img src="assets/${playerWin.choice}.png" class="choice" alt="${playerWin.choice}">
-            <img src="assets/${playerWin.choice}.png" class="choice" alt="${playerWin.choice}">
+            <img src="assets/${playerWin.choice}.png" class="choice show" alt="${playerWin.choice}">
+            <img src="assets/${playerWin.choice}.png" class="choice show" alt="${playerWin.choice}">
         </section>`
     }
     emote(playerWin, playerLose)
@@ -230,8 +230,6 @@ function emote(playerWin, playerLose) {
         computer.token = `assets/comp-dull.png`
     }
 }
-
-// var pastGames = [];
 
 function showGameHistory(human, computer) {
     gameHistory.classList.remove('hidden')

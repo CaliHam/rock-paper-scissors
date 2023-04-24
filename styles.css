@@ -17,7 +17,7 @@ body {
 }
 
 /* MAIN MIDDLE AREA - HOME PAGE */
-main, .side-panel, div, #home-view {
+main, .side-panel, #home-view, article, div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +47,7 @@ h3 {
     margin: 10px;
 }
 
-div {
+article, div {
     margin-top: 10%;
     font-size: 20px;
 }
@@ -187,6 +187,11 @@ h5 {
     cursor: pointer;
     transform: scale(1.1);
     transition: .2s ease;
+}
+
+.show:hover {
+    cursor: default;
+    transform: none;
 }
 
 .players-choices {
