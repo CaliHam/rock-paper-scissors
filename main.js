@@ -10,6 +10,9 @@ var userChoice = document.querySelectorAll('.choice')
 var title = document.querySelector('.header2')
 var gameHistory = document.querySelector('.game-log')
 var pastChoices = document.querySelector('.choices-log')
+var username = document.querySelector('.username')
+var submit = document.querySelector('.submit')
+var loginPage = document.querySelector('.login')
 
 var currentGame = createGame(createPlayer('Human', `assets/neutral.png`), createPlayer('Computer', `assets/comp-neutral.png`))
 var human = currentGame.players[0]
@@ -19,10 +22,18 @@ var computer = currentGame.players[1]
 classicChoice.addEventListener('click', playClassic)
 elementChoice.addEventListener('click', playElemental)
 changeGameBtn.addEventListener('click', changeGame)
-
-window.onload = function() {
+submit.addEventListener('click', function(event) {
+    event.preventDefault() 
+    human.name = username.value;
+    localStorage.setItem('username', username.value)
+    homeView.classList.remove('hidden')
+    loginPage.classList.add('hidden')
     setMatch(human, computer)
-}
+})
+
+// window.onload = function() {
+//     setMatch(human, computer)
+// }
 
 function resetChoices() {
     var userChoice = document.querySelectorAll('.choice')
@@ -66,6 +77,20 @@ function setMatch(player1, player2){
         <h4>${player2.name}</h4>
         <p>Wins: ${player2.wins}</p>`
 }
+
+// Local Storage//
+// localStorage.setItem('username', user.input)
+// player.name = user.input
+// localStorage.setItem('username', 'Calli')
+
+function saveToStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value))
+}
+
+function retrieveFromStorage(key) {
+    JSON.parse(localStorage.getItem(key))
+}
+
 
 // Play Game //
 function getRandomIndex(array) {
