@@ -10,44 +10,44 @@
     <body>
         <main>
             <h1>Rock, Paper, Scissors</h1>
-            <section id="home-view">
+            <nav id="home-view">
                 <h2>Choose your game!</h2>
-                <div id="classic" class="games">
+                <article id="classic" class="games">
                     <h3>Classic</h3>
                     <p>rock > scissors</p>
                     <p>paper > rock</p>
                     <p>scissors > paper</p>
-                </div>
-                <div id="elemental" class="games">
+                </article>
+                <article id="elemental" class="games">
                     <h3>Elemental</h3>
                     <p>cryo > hydro & electro</p>
                     <p>hydro > pyro & geo</p>
                     <p>geo > pyro & cryo</p>
                     <p>pyro > cryo & electro</p>
                     <p>electro > geo & hydro</p>
-                </div>
-            </section>
+                </article>
+            </nav>
             <form id="game-options">
                 <!-- Current Game Options go here  -->
             </form>
         </main>
-        <section id="left-human" class="side-panel">
-            <div class="human">
+        <aside id="left-human" class="side-panel">
+            <article class="human">
                 <!-- Human stats go here -->
-            </div>
+            </article>
             <button class="change-game hidden">Change Game</button>
-        </section>
-        <section id="right-computer" class="side-panel">
-            <div class="comp">
+        </aside>
+        <aside id="right-computer" class="side-panel">
+            <article class="comp">
                 <!-- Computer stats go here -->
-            </div>
-            <div class="game-log hidden">
+            </article>
+            <article class="game-log hidden">
                 <h5><u>Game History</u></h5>
                 <div class="choices-log">
                     <!-- Game Log goes here -->
                 </div>
-            </div>
-        </section>
+            </article>
+        </aside>
         <script type="text/javascript" src="main.js"></script>
     </body>
 </html>

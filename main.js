@@ -67,7 +67,7 @@ function setMatch(player1, player2){
         <p>Wins: ${player2.wins}</p>`
 }
 
-// OTHER FUNCTIONS //
+// Play Game //
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
 }
@@ -98,7 +98,6 @@ function createGame(player1, player2) {
     return newGame;
 }
 
-// should work for either game type
 function takeTurn(player, event) {
     if (event){
         var userChoice = event.target.alt
@@ -133,7 +132,6 @@ function pickWinnerClassic(player1, player2) {
 }
 
 function pickWinnerElemental(player1, player2) {
-    console.log('click')
     draw(player1, player2)
     for (var i = 0; i < currentGame.winConditions.elemental.length; i++) {
         if (player1.choice === currentGame.winConditions.elemental[i][0] && 
@@ -199,15 +197,15 @@ function showResult(playerWin, playerLose) {
         gameOptions.innerHTML = `
         <h2 class="header2">${playerWin.name} won this round!</h2>
         <section class="win-box">
-            <img src="assets/${human.choice}.png" class="choice" alt="${human.choice}">
-            <img src="assets/${computer.choice}.png" class="choice" alt="${computer.choice}">
+            <img src="assets/${human.choice}.png" class="choice show" alt="${human.choice}">
+            <img src="assets/${computer.choice}.png" class="choice show" alt="${computer.choice}">
         </section>`
     } else {
         gameOptions.innerHTML = `
         <h2 class="header2">It's a draw!</h2>
         <section class="win-box">
-            <img src="assets/${playerWin.choice}.png" class="choice" alt="${playerWin.choice}">
-            <img src="assets/${playerWin.choice}.png" class="choice" alt="${playerWin.choice}">
+            <img src="assets/${playerWin.choice}.png" class="choice show" alt="${playerWin.choice}">
+            <img src="assets/${playerWin.choice}.png" class="choice show" alt="${playerWin.choice}">
         </section>`
     }
     emote(playerWin, playerLose)
@@ -230,8 +228,6 @@ function emote(playerWin, playerLose) {
         computer.token = `assets/comp-dull.png`
     }
 }
-
-// var pastGames = [];
 
 function showGameHistory(human, computer) {
     gameHistory.classList.remove('hidden')
