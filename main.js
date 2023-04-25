@@ -106,7 +106,7 @@ function setMatch(player1, player2){
 function saveUser(key, thisGame) {
     var allGames = getFromStorage(key)
     thisGame.players[0].name = username.value;
-    var foundGame = allGames.find((game) => game.players[0].name === thisGame.players[0].name)
+    var foundGame = allGames.find((game) => game.players[0].name.toLowerCase() === thisGame.players[0].name.toLowerCase())
     if (!foundGame) {
         allGames.push(thisGame)
         localStorage.setItem(key, JSON.stringify(allGames))
