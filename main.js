@@ -32,6 +32,7 @@ submit.addEventListener('click', function(event) {
     event.preventDefault() 
     login()
 })
+logout.addEventListener('click', logoutUser)
 
 window.onload = function() {
     if (!getFromStorage('games')) {
@@ -51,6 +52,10 @@ function login(){
         logout.classList.remove('hidden')
         loginPage.classList.add('hidden')
     }
+}
+
+function logoutUser() {
+    location.reload();
 }
 
 function resetChoices(human, computer, currentGame) {

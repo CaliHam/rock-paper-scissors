@@ -17,7 +17,7 @@ body {
 }
 
 /* MAIN MIDDLE AREA - HOME PAGE */
-main, .side-panel, #home-view, article, div, .login, .user-input {
+main, .side-panel, #home-view, article, div, .login, .user-input, .buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,8 +111,8 @@ h4 {
 }
 
 .change-game, .logout {
-    width: 75%;
-    height: 5%;
+    width: 150px;
+    height: 50px;
     margin-top: 50px;
     background-color: rgba(254, 164, 135, 0.9);
     color: aliceblue; 
