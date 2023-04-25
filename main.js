@@ -13,6 +13,7 @@ var pastChoices = document.querySelector('.choices-log')
 var username = document.querySelector('.username')
 var submit = document.querySelector('.submit')
 var loginPage = document.querySelector('.login')
+var userError = document.querySelector('.error')
 
 var currentGame = createGame(createPlayer('Human', `assets/neutral.png`), createPlayer('Computer', `assets/comp-neutral.png`))
 var human = currentGame.players[0]
@@ -24,16 +25,25 @@ elementChoice.addEventListener('click', playElemental)
 changeGameBtn.addEventListener('click', changeGame)
 submit.addEventListener('click', function(event) {
     event.preventDefault() 
-    human.name = username.value;
-    localStorage.setItem('username', username.value)
-    homeView.classList.remove('hidden')
-    loginPage.classList.add('hidden')
-    setMatch(human, computer)
+    login()
 })
 
 // window.onload = function() {
 //     setMatch(human, computer)
 // }
+
+function login(){
+    if (username.value === ""){
+        userError.innerText = 'Please enter your name.'
+        return;
+    } else {
+        human.name = username.value;
+        localStorage.setItem('username', username.value)
+        homeView.classList.remove('hidden')
+        loginPage.classList.add('hidden')
+        setMatch(human, computer)
+    }
+}
 
 function resetChoices() {
     var userChoice = document.querySelectorAll('.choice')
@@ -183,6 +193,7 @@ function draw(player1, player2) {
 
 function resetClassic() {
     gameOptions.innerHTML = `
+    <h1>Rock, Paper, Scissors</h1>
     <h2 class="header2">Choose your character!</h2>
     <section class="classic-options-box">
         <img src="assets/rock.png" class="choice" alt="rock">
@@ -193,6 +204,7 @@ function resetClassic() {
 
 function resetElemental() {
     gameOptions.innerHTML = `
+    <h1>Rock, Paper, Scissors</h1>
     <h2 class="header2">Choose your element!</h2>
     <section class="element-options-box">
         <img src="assets/cryo.png" class="choice" alt="cryo">
@@ -220,6 +232,7 @@ function resetGame() {
 function showResult(playerWin, playerLose) {
     if (playerWin, playerLose){
         gameOptions.innerHTML = `
+        <h1>Rock, Paper, Scissors</h1>
         <h2 class="header2">${playerWin.name} won this round!</h2>
         <section class="win-box">
             <img src="assets/${human.choice}.png" class="choice show" alt="${human.choice}">
@@ -227,6 +240,7 @@ function showResult(playerWin, playerLose) {
         </section>`
     } else {
         gameOptions.innerHTML = `
+        <h1>Rock, Paper, Scissors</h1>
         <h2 class="header2">It's a draw!</h2>
         <section class="win-box">
             <img src="assets/${playerWin.choice}.png" class="choice show" alt="${playerWin.choice}">
