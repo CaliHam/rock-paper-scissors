@@ -72,7 +72,7 @@ article, div {
     transition: .2s ease;
 }
 
-.games:hover, .change-game:hover, .submit:hover {
+.games:hover, .change-game:hover, .submit:hover, .logout:hover {
     cursor: pointer;
     box-shadow: 10px 10px 13px -4px rgba(0,0,0,0.3);
     background-color: rgba(252, 176, 151, 0.9);
@@ -110,7 +110,7 @@ h4 {
     justify-content: flex-end;
 }
 
-.change-game {
+.change-game, .logout {
     width: 75%;
     height: 5%;
     margin-top: 50px;
