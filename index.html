@@ -4,13 +4,21 @@
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap" rel="stylesheet">
-        <!-- <a href='https://pngtree.com/so/golden'>golden png from pngtree.com/</a> -->
         <title>Rock, Paper, Scissors</title>
     </head>
     <body>
         <main>
+            <form class="login">
+                <h1>Welcome!</h1>
+                <section class="user-input">
+                    <label for="username">Enter your name:</label><br>
+                    <p class="error"></p>
+                    <input type="text" class="username"/><br>
+                    <button type="submit" class="submit" accesskey="Enter">Submit</button>
+                </section>
+            </form>
+            <nav id="home-view" class="hidden">
             <h1>Rock, Paper, Scissors</h1>
-            <nav id="home-view">
                 <h2>Choose your game!</h2>
                 <article id="classic" class="games">
                     <h3>Classic</h3>
@@ -32,10 +40,13 @@
             </form>
         </main>
         <aside id="left-human" class="side-panel">
+            <div class="buttons">
+                <button class="logout hidden">Logout</button>
+                <button class="change-game hidden">Change Game</button>
+            </div>
             <article class="human">
                 <!-- Human stats go here -->
             </article>
-            <button class="change-game hidden">Change Game</button>
         </aside>
         <aside id="right-computer" class="side-panel">
             <article class="comp">

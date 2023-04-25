@@ -17,16 +17,26 @@ body {
 }
 
 /* MAIN MIDDLE AREA - HOME PAGE */
-main, .side-panel, #home-view, article, div {
+main, .side-panel, #home-view, article, div, .login, .user-input, .buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
     order: 2;
 }
 
-main {
-    border: 5px solid transparent;
-    padding: 10px;
+.user-input {
+    background-color: rgba(254, 164, 135, 0.7);
+    border-radius: 20px;
+    transition: .2s ease;
+    padding: 10%;
+    margin-top: 35px;
+}
+
+.submit {
+    border: none;
+    color: aliceblue;
+    background-color: #3C363B;
+    border-radius: 5px;
 }
 
 h1 {
@@ -35,6 +45,7 @@ h1 {
     font-size: 80px;
     margin-top: 5px;
     margin-bottom: 0px;
+    width: 100%;
 }
 
 h2 {
@@ -52,27 +63,30 @@ article, div {
     font-size: 20px;
 }
 
-#home-view {
-    width: 50%;
-}
-
 .games {
     background-color: rgba(254, 164, 135, 0.7);
-    width: 70%;
+    width: 35%;
     height: fit-content;
-    padding: 5%;
+    padding: 2%;
     border-radius: 20px;
     transition: .2s ease;
 }
 
-.games:hover, .change-game:hover {
+.games:hover, .change-game:hover, .submit:hover, .logout:hover {
     cursor: pointer;
     box-shadow: 10px 10px 13px -4px rgba(0,0,0,0.3);
     background-color: rgba(252, 176, 151, 0.9);
+    color: #3C363B;
 }
 
 p {
     margin: 5px;
+}
+
+#game-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* SIDE PANELS */
@@ -96,12 +110,12 @@ h4 {
     justify-content: flex-end;
 }
 
-.change-game {
-    width: 75%;
-    height: 5%;
+.change-game, .logout {
+    width: 150px;
+    height: 50px;
     margin-top: 50px;
     background-color: rgba(254, 164, 135, 0.9);
-    color: aliceblue;
+    color: aliceblue; 
     font-size: 100%;
     border: none;
     border-radius: 5px;
@@ -165,6 +179,11 @@ h5 {
     margin-top: 50px;
     background-color: rgba(251, 235, 213, 0.7);
     border-radius: 20px;
+    width: 70%;
+}
+
+.classic-options-box {
+    width: 50%;
 }
 
 .win-box {
