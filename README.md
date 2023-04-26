@@ -1,7 +1,7 @@
 ## Rock, Paper, Scissors... and more?
 
 ### Abstract
-This Rock, Paper, Scissors site will allow a user to play two different game mode against a computer. The first mode is classic: rock, paper, scissors. The more difficult mode is elements, where the options are cryo, hydro, geo, electro, and pyro; taken from the popular RPG: Genshin Impact. The user will always pick their mode and character, and the computer's choice is randomized. Upon first load into the webpage, the user will be greeted with a log in page that will allow them to save their game and come back to continue.
+This Rock, Paper, Scissors site will allow a user to play two different game mode against a computer. The first mode is classic: rock, paper, scissors. The more difficult mode is elements, where the options are cryo, hydro, geo, electro, and pyro; taken from the popular RPG: Genshin Impact. The user will always pick their mode and character, and the computer's choice is randomized. Upon first load into the webpage, the user will be greeted with a log in page that will allow them to save their game and come back to continue. [Click here](https://caliham.github.io/rock-paper-scissors/) to visit the site!
 
 ### Installation Instructions
 1. Fork this repository [here](https://github.com/CaliHam/rock-paper-scissors)
@@ -13,7 +13,7 @@ This Rock, Paper, Scissors site will allow a user to play two different game mod
 ### Preview of App
 ![RockPaperScissors](assets/Preview.gif)
 ### Context
-I worked on this project alone with the help of my mentor and classmates over the course of a week. I am currently in my 4th and final week of Mod 1 at Turing.
+I worked on this solo project with the help of my mentor over the course of a week. I am currently in my 4th and final week of Mod 1 at Turing.
 ### Contributors
 - [Calli](https://github.com/CaliHam)
 
