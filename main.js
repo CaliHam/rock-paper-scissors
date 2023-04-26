@@ -152,11 +152,11 @@ function createGame(player1, player2) {
         type: null,
         winConditions: {
             classic: [['rock', 'scissors'],['scissors', 'paper'],['paper', 'rock']],
-            elemental: [['cryo', 'hydro', 'electro'],['hydro', 'pyro', 'geo'],['geo', 'pyro', 'cryo'],['pyro', 'cryo', 'electro'],['electro', 'geo', 'hydro']]
+            elemental: [['Cryo', 'Hydro', 'Electro'],['Hydro', 'Pyro', 'Geo'],['Geo', 'Pyro', 'Cryo'],['Pyro', 'Cryo', 'Electro'],['Electro', 'Geo', 'Hydro']]
         },
         options: {
           classic: ['rock', 'paper', 'scissors'],
-          elements: ['cryo', 'pyro', 'electro', 'geo', 'hydro']
+          elements: ['Cryo', 'Pyro', 'Electro', 'Geo', 'Hydro']
         }
     }
     return newGame;
