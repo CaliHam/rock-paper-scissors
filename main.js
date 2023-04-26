@@ -152,11 +152,11 @@ function createGame(player1, player2) {
         type: null,
         winConditions: {
             classic: [['rock', 'scissors'],['scissors', 'paper'],['paper', 'rock']],
-            elemental: [['Cryo', 'Hydro', 'Electro'],['Hydro', 'Pyro', 'Geo'],['Geo', 'Pyro', 'Cryo'],['Pyro', 'Cryo', 'Electro'],['Electro', 'Geo', 'Hydro']]
+            elemental: [['cryo', 'hydro', 'electro'],['hydro', 'pyro', 'geo'],['geo', 'pyro', 'cryo'],['pyro', 'cryo', 'electro'],['electro', 'geo', 'hydro']]
         },
         options: {
           classic: ['rock', 'paper', 'scissors'],
-          elements: ['Cryo', 'Pyro', 'Electro', 'Geo', 'Hydro']
+          elements: ['cryo', 'pyro', 'electro', 'geo', 'hydro']
         }
     }
     return newGame;
@@ -240,11 +240,11 @@ function resetElemental() {
     <h1>Rock, Paper, Scissors</h1>
     <h2 class="header2">Choose your element!</h2>
     <section class="element-options-box">
-        <img src="assets/cryo.png" class="choice" alt="cryo">
-        <img src="assets/electro.png" class="choice" alt="electro">
-        <img src="assets/geo.png" class="choice" alt="geo">
-        <img src="assets/pyro.png" class="choice" alt="pyro">
-        <img src="assets/hydro.png" class="choice" alt="hydro">
+        <img src="assets/Cryo.png" class="choice" alt="cryo">
+        <img src="assets/Electro.png" class="choice" alt="electro">
+        <img src="assets/Geo.png" class="choice" alt="geo">
+        <img src="assets/Pyro.png" class="choice" alt="pyro">
+        <img src="assets/Hydro.png" class="choice" alt="hydro">
     </section>`
 }
 
